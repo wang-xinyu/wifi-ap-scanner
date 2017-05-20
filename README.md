@@ -1,40 +1,34 @@
-# Wifi-linux
-Simple python script, which collects RSSI information about wifi access points around you and draws graphics showing RSSI activity.
+# Wifi AP Scanner
+Simple python script to scan Wi-Fi APs' SSID, BSSID and Signal Strength. 
+
+## Note
+
+I only tested this code on Ubuntu 16.04, x86_64. If you guys make it work on other platforms, pls let me know.
 
 ## Dependencies
 
-```gnuplot-x11```
+```
+sudo apt install python-dbus
+```
 
 ## Usage
 
-./list_rssi.py <tick tim (secs)> <Watched access point1> <Watch access point2> ....
+```
+./wifi_ap_scanner.py
+```
 
-After start you recieve an output of all access points around you.
-After that you will be prompted for a command.
-    plot
-        draw an RSSI activity graphic for this moment since program start
-    bp
-        add a small breakpoint to a future graphic here
-    stop
-        stop the program
-    start
-        start timer and data processing
-    start changer
-        start data processing for every event on adapter
-    print
-        print rssi data
+## Example
 
-### Example
-    ./list_rssi.py 5 WifiHome WifiBuddy Dlink200
-    ...wait for some time
-    bp
-    added a breakpoint 
-    ...wait for some time
-    pl
-    ...watch your graphic
-    st
-##Commit hist
-    02.06.2011: First commit - a printed list [AP: RSSI]
-    02.06.2011: Now refreshes on every signal change, completely new design
-    02.06.2011: Gnuplot
-    09.06.2011: New functionality - start changer, print.
+```
+$ ./wifi_ap_scanner.py 
+ssid:           dlink-B5C0		bssid: C4:A8:1D:85:B5:C0		strength: 57
+ssid:     dlink-media-B5C2		bssid: C4:A8:1D:85:B5:C2		strength: 30
+ssid:         Easecox ASUS		bssid: 1C:B7:2C:D6:60:D4		strength: 39
+ssid:         SINGTEL-519D		bssid: E0:8E:3C:14:51:9E		strength: 40
+ssid:             sehchang		bssid: 20:25:64:47:F6:2E		strength: 34
+ssid:           Mohd Tahir		bssid: F8:32:E4:EC:C0:D8		strength: 22
+ssid:         SINGTEL-2DB8		bssid: 50:C7:BF:58:99:E6		strength: 22
+ssid:      Kimberly (2.4G)		bssid: E4:3E:D7:FD:7F:20		strength: 35
+ssid:       DR650GW-805DE3		bssid: 00:25:42:80:5D:E3		strength: 35
+ssid:  Fernandez (Printer)		bssid: 30:B5:C2:41:A0:2E		strength: 29
+```
